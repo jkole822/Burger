@@ -2,7 +2,7 @@ const orm = require("../config/orm");
 
 const burger = {
 	fetch: function (cb) {
-		orm.selectAll(err, data => cb(err, data));
+		orm.selectAll((err, data) => cb(err, data));
 	},
 	create: function (value, cb) {
 		orm.insertOne(value, (err, data) => cb(err, data));
