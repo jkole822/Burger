@@ -25,7 +25,7 @@ const orm = {
 	},
 	updateOne: async function (id, cb) {
 		try {
-			let updateQuery = "UPDATE burgers SET boolean = 1 ";
+			let updateQuery = "UPDATE burgers SET devoured = 1 ";
 			updateQuery += "WHERE burgers.id = ? ";
 			const data = await query(updateQuery, id);
 			cb(null, data);
