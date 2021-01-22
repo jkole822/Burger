@@ -2,13 +2,13 @@ const orm = require("../config/orm");
 
 const burger = {
 	fetch: function (cb) {
-		orm.selectAll(res => cb(res));
+		orm.selectAll(err, data => cb(err, data));
 	},
 	create: function (value, cb) {
-		orm.insertOne(value, res => cb(res));
+		orm.insertOne(value, (err, data) => cb(err, data));
 	},
 	update: function (value, cb) {
-		orm.updateOne(value, res => cb(res));
+		orm.updateOne(value, (err, data) => cb(err, data));
 	},
 };
 
