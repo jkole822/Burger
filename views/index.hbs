@@ -1,1 +1,27 @@
 <h1>Eat Da Burger</h1>
+
+<div class='row'>
+    <form class='col s12'>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="prefix fas fa-hamburger"></i>
+                <input id='burger_name' type='text' class='validate' name='burger_name' />
+                <label for='burger_name'>Name your burger!</label>
+            </div>
+        </div>
+        <button class="waves-effect waves-light btn-large" type='submit'>Create</button>
+    </form>
+
+    <div class="row">
+        <div class="col s6">
+            <ul>
+                {{#each burgers}}
+                <li>
+                    {{this.burger_name}}
+                    <button data-id='{{this.id}}' class='waves-effect waves-light btn-small'>Devour</button>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
