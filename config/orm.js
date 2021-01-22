@@ -23,11 +23,11 @@ const orm = {
 			cb(e);
 		}
 	},
-	updateOne: async function (id, cb) {
+	updateOne: async function (value, cb) {
 		try {
 			let updateQuery = "UPDATE burgers SET devoured = 1 ";
 			updateQuery += "WHERE burgers.id = ? ";
-			const data = await query(updateQuery, id);
+			const data = await query(updateQuery, value);
 			cb(null, data);
 		} catch (e) {
 			cb(e);
