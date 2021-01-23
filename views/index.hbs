@@ -1,12 +1,12 @@
 <h1>Eat Da Burger</h1>
 
 <div class='row'>
-    <form class='col s12'>
+    <form id='create-burger' class='col s12'>
         <div class="row">
             <div class="input-field col s6">
                 <i class="prefix fas fa-hamburger"></i>
-                <input id='burger_name' type='text' class='validate' name='burger_name' />
-                <label for='burger_name'>Name your burger!</label>
+                <input id='burger-name' type='text' class='validate' />
+                <label for='burger-name'>Name your burger!</label>
             </div>
         </div>
         <button class="waves-effect waves-light btn-large" type='submit'>Create</button>
@@ -16,10 +16,27 @@
         <div class="col s6">
             <ul>
                 {{#each burgers}}
+                {{#unless this.devoured}}
                 <li>
-                    {{this.burger_name}}
-                    <button data-id='{{this.id}}' class='waves-effect waves-light btn-small'>Devour</button>
+                    <p>{{this.id}}. {{this.burger_name}}</p>
+                    <button data-id='{{this.id}}'
+                        class='waves-effect waves-light btn-small devour-button'>Devour</button>
                 </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s6">
+            <ul>
+                {{#each burgers}}
+                {{#if this.devoured}}
+                <li>
+                    <p>{{this.id}}. {{this.burger_name}}</p>
+                </li>
+                {{/if}}
                 {{/each}}
             </ul>
         </div>
