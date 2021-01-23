@@ -16,7 +16,7 @@ const orm = {
 	},
 	insertOne: async function (value, cb) {
 		try {
-			const createQuery = "INSERT INTO burgers (burgers) VALUES (?)";
+			const createQuery = "INSERT INTO burgers (burger_name) VALUES (?)";
 			const data = await query(createQuery, value);
 			cb(null, data);
 		} catch (e) {
