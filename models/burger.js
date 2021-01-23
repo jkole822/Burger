@@ -10,6 +10,9 @@ const burger = {
 	update: function (value, cb) {
 		orm.updateOne(value, (err, data) => cb(err, data));
 	},
+	delete: function (cb) {
+		orm.delete((err, data) => cb(err, data));
+	},
 };
 
 module.exports = burger;
