@@ -1,9 +1,11 @@
 $("#create-burger").submit(() => {
 	const data = { burger_name: $("#burger-name").val().trim() };
 
-	$.post("/api/burgers", data);
+	if (data.burger_name) {
+		$.post("/api/burgers", data);
 
-	location.reload();
+		location.reload();
+	}
 });
 
 $(".devour-button").click(function () {
