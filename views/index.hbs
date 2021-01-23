@@ -1,44 +1,50 @@
-<h1>Eat Da Burger</h1>
+<h1 class='center-align header purple-text text-lighten-3'>Eat Da Burger</h1>
 
-<div class='row'>
-    <form id='create-burger' class='col s12'>
-        <div class="row">
-            <div class="input-field col s6">
-                <i class="prefix fas fa-hamburger"></i>
-                <input id='burger-name' type='text' class='validate' />
-                <label for='burger-name'>Name your burger!</label>
-            </div>
+<div class='row container'>
+    <div class="col s12 center-align">
+        <img id='burger-image' src='/assets/img/burger.png' />
+    </div>
+    <form id='create-burger' class='col s12 center-align'>
+        <div class="input-field">
+            <i class="prefix fas fa-hamburger purple-text text-lighten-3"></i>
+            <input id='burger-name' type='text' class='validate purple-text text-lighten-3' />
+            <label for='burger-name' class='purple-text text-lighten-3'>Name your burger!</label>
         </div>
-        <button class="waves-effect waves-light btn-large" type='submit'>Create</button>
+        <button class="purple waves-effect waves-light btn-large" type='submit'>Create</button>
     </form>
 
     <div class="row">
-        <div class="col s6">
+        <div class="col s5">
+            <h2 class='center-align header purple-text text-lighten-3'>Burger Creations</h2>
             <ul>
                 {{#each burgers}}
                 {{#unless this.devoured}}
-                <li>
-                    <p>{{this.id}}. {{this.burger_name}}</p>
+                <li class='row valign-wrapper'>
+                    <p class='col s8 purple-text text-lighten-4'>{{this.id}}. {{this.burger_name}}</p>
                     <button data-id='{{this.id}}'
-                        class='waves-effect waves-light btn-small devour-button'>Devour</button>
+                        class='purple waves-effect waves-light btn-small devour-button col s4'>Devour</button>
                 </li>
                 {{/unless}}
                 {{/each}}
             </ul>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col s6">
+        <div class="col s5 offset-s2">
+            <h2 class='center-align header purple-text text-lighten-3'>Devoured</h2>
             <ul>
                 {{#each burgers}}
                 {{#if this.devoured}}
                 <li>
-                    <p>{{this.id}}. {{this.burger_name}}</p>
+                    <p class='purple-text text-lighten-4'>{{this.id}}. {{this.burger_name}}</p>
                 </li>
                 {{/if}}
                 {{/each}}
             </ul>
+            <div class="row">
+                <button id='clear-button'
+                    class='purple waves-effect waves-light btn-small devour-button col s6 offset-s3'>Clear
+                </button>
+            </div>
         </div>
     </div>
 </div>
