@@ -8,8 +8,10 @@ router.get("/", (req, res) => {
 		if (err) return res.status(500).end();
 		console.log("Fetching burgers: ");
 		console.table(data);
+		const devoured = data.filter(burger => burger.devoured);
 		hbsObject = {
 			burgers: data,
+			devoured: devoured.length,
 		};
 		res.render("index", hbsObject);
 	});
