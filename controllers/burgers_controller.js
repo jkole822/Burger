@@ -33,4 +33,13 @@ router.patch("/api/burgers/:id", (req, res) => {
 	});
 });
 
+router.delete("/api/burgers", (req, res) => {
+	burger.delete((err, data) => {
+		if (err) return res.status(500).end();
+		console.log("Deleting burgers:");
+		console.table(data);
+		res.status(200).end();
+	});
+});
+
 module.exports = router;
