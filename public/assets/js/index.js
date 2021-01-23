@@ -1,4 +1,4 @@
-$("#create-burger").submit(event => {
+$("#create-burger").submit(() => {
 	const data = { burger_name: $("#burger-name").val().trim() };
 
 	$.post("/api/burgers", data);
@@ -11,6 +11,14 @@ $(".devour-button").click(function () {
 
 	$.ajax(`/api/burgers/${id}`, {
 		type: "PATCH",
+	});
+
+	location.reload();
+});
+
+$("#clear-button").click(() => {
+	$.ajax("/api/burgers", {
+		type: "DELETE",
 	});
 
 	location.reload();
