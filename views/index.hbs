@@ -7,7 +7,7 @@
     <form id='create-burger' class='col s12 center-align'>
         <div class="input-field">
             <i class="prefix fas fa-hamburger purple-text text-lighten-3"></i>
-            <input id='burger-name' type='text' class='validate purple-text text-lighten-3' />
+            <input autocomplete="off" id='burger-name' type='text' class='validate purple-text text-lighten-3' />
             <label for='burger-name' class='purple-text text-lighten-3'>Name your burger!</label>
         </div>
         <button class="purple waves-effect waves-light btn-large" type='submit'>Create</button>
@@ -41,9 +41,11 @@
                 {{/each}}
             </ul>
             <div class="row">
+                {{#if devoured}}
                 <button id='clear-button'
                     class='purple waves-effect waves-light btn-small devour-button col s6 offset-s3'>Clear
                 </button>
+                {{/if}}
             </div>
         </div>
     </div>
