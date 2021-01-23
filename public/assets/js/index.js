@@ -9,21 +9,13 @@ $("#create-burger").submit(() => {
 $(".devour-button").click(function () {
 	const id = $(this).attr("data-id");
 
-	$.ajax(
-		`/api/burgers/${id}`,
-		{
-			type: "PATCH",
-		},
-		() => location.reload()
-	);
+	$.ajax(`/api/burgers/${id}`, {
+		type: "PATCH",
+	}).then(() => location.reload());
 });
 
 $("#clear-button").click(() => {
-	$.ajax(
-		"/api/burgers",
-		{
-			type: "DELETE",
-		},
-		() => location.reload()
-	);
+	$.ajax("/api/burgers", {
+		type: "DELETE",
+	}).then(() => location.reload());
 });
