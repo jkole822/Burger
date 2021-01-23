@@ -33,6 +33,16 @@ const orm = {
 			cb(e);
 		}
 	},
+	delete: async function (cb) {
+		try {
+			let deleteQuery = "DELETE FROM burgers ";
+			deleteQuery += "WHERE burgers.devoured = 1";
+			const data = await query(deleteQuery);
+			cb(null, data);
+		} catch (e) {
+			cb(e);
+		}
+	},
 };
 
 module.exports = orm;
